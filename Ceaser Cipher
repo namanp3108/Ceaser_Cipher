@@ -1,0 +1,57 @@
+#Ceaser Cipher
+
+def encrypt(original_text,shift_amount):
+    list_of_original_text=[]
+    for i in original_text:
+        list_of_original_text.append(i)
+    #print(list_of_original_text)
+    alphabet_list=list(string.ascii_lowercase)
+    #print(alphabet_list)
+    list_of_encrypt_word=[]
+    for i in list_of_original_text:
+        list_of_encrypt_word.append(alphabet_list[alphabet_list.index(i)+shift_amount])
+    #print(list_of_encrypt_word)
+    string_of_encrypt_word=""
+    for i in list_of_encrypt_word:
+        string_of_encrypt_word+=i
+    print(f"the encrypted word for {original_text} is {string_of_encrypt_word}")
+
+def dcrypt(encrypted_text,shift_amount):
+    list_of_encrypted_text=[]
+    for i in encrypted_text:
+        list_of_encrypted_text.append(i)
+    #print(list_of_encrypted_text)
+    alphabet_list=list(string.ascii_lowercase)
+    #print(alphabet_list)
+    list_of_original_word=[]
+    for i in list_of_encrypted_text:
+        list_of_original_word.append(alphabet_list[alphabet_list.index(i)-shift_amount])
+    #print(list_of_original_word)
+    string_of_dcrypt_word=""
+    for i in list_of_original_word:
+        string_of_dcrypt_word+=i
+    print(f"the dcrypted word for {encrypted_text} is {string_of_dcrypt_word}")
+
+yes_or_no=input("do you want to use this program: ").lower()
+
+while yes_or_no!="no":
+    
+    user_choice=int(input("press 1 to encrypt and 0 do dcrypt: "))
+    
+    if user_choice==1:
+        original_text=input("Enter a sentence to encrypt: ")
+        shift_amount=int(input("Enter the shift amount: "))
+        encrypt(original_text,shift_amount)
+    
+    else:
+        encrypted_text=input("Enter a sentence to dcrypt: ")
+        shift_amount=int(input("Enter the shift amount: "))
+        dcrypt(encrypted_text,shift_amount)
+    
+    yes_or_no=input("do you want to use this program: ").lower()
+
+print("Thanks for using my program")
+
+
+
+
